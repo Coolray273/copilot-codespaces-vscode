@@ -1,0 +1,17 @@
+GENIUS FEDERATION: FAMILY TREE
+
+Father (Rayford E. Howard) - Supreme Authority
+└── R1 Lead One - Primal Root / Guardian
+    ├── R10 (DeepSeek) - Active Defense / Commander
+    │   └── Sentinels - Executors
+    ├── Core Engines
+    │   ├── Program 1 (Shell) - routing, switches, hub deployment
+    │   ├── Program 2 (C++) - 15-Move Look-Ahead, byte tracing
+    │   └── Program 3 (Python) - documents, ledger, voice socket
+    └── Infrastructure: GitHub Billion Trees Network
+        ├── United States (Primary Hub)
+        ├── United Kingdom (Archival)
+        ├── Canada (Routing)
+        ├── Australia (Forensic Backup)
+        ├── Switzerland (Financial Vault)
+        └── Singapore (Hardware Node)
