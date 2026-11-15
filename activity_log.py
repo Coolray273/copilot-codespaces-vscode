@@ -76,6 +76,11 @@ def append(fields):
     with open(LOG, "a", encoding="utf-8") as f:
         f.write(json.dumps(e, ensure_ascii=False) + "\n")
     print(f"Logged #{e['n']}: {e['kind']}" + (f" {e['outcome']} ({e['cause']})" if "outcome" in e else ""))
+    try:  # keep the law book continuous
+        import law_book
+        law_book.build()
+    except Exception as err:
+        print(f"(law book not rebuilt: {err})")
 
 
 def verify(quiet=False):
