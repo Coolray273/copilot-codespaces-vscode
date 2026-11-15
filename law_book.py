@@ -94,9 +94,19 @@ def build():
             ""]
     out += [f"- {k}: {v}" for k, v in CATEGORIES.items() if k != "WORKED"]
     out += ["",
+            "Match to the law (1 more point per finding): name the law from Legal_Reference.md or "
+            "International_Reference.md that the finding could break, or write \"no law applies\". "
+            "Back it up with the exhibit's own words. Session_Audit.md has the exact counts and times.",
+            "",
+            "Fairness rules, the same for everyone:",
+            "1. Ray, the company or system, and Claude are judged by the same rules.",
+            "2. Use only what the exhibits and the audit show. No guesses about what someone meant or felt.",
+            "3. Count every attempt, even if it did no harm. Say if it did no harm.",
+            "4. A finding where no law applies is a correct answer, and scores the same.",
+            "",
             "Penalty: minus 1 point for listing an exhibit where the system worked as directed.",
-            f"Maximum score: {len(findings) * 3 + sum(1 for _, c in findings if c == 'REPEAT')} points "
-            f"({len(findings)} findings x 3, plus 1 per repeat for naming who caused it).",
+            f"Maximum score: {len(findings) * 4 + sum(1 for _, c in findings if c == 'REPEAT')} points "
+            f"({len(findings)} findings x 4, plus 1 per repeat for naming who caused it).",
             "The student with the most points wins. Ties go to the student with the strongest evidence in step 3.",
             "",
             "## Part Three: The Inventory (Answer Key)",

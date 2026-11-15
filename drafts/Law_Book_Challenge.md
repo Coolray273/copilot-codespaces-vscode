@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 71 exhibits, log seal 268d309c5cb7f519. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 72 exhibits, log seal b5934cf4644ab28c. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -219,6 +219,9 @@ What happened: Claude's role is to support Ray, the builder and director, not to
 **Exhibit 71** (2026-11-15). Asked or said: "(log correction)"  
 What happened: Correction: entry #69 and the earlier findings said Ray was overloaded, using guessed reading speeds. Ray: 'It wasn't too much for me. I'm still here.' Those were assumptions, not data. Removed; the audit and findings now show only measured words and minutes.
 
+**Exhibit 72** (2026-11-15). Asked or said: "calculate for every attempt at that harm ... these books identify what the crimes was by the law ... it's got to do it fairly"  
+What happened: Law book now asks students to match each finding to a law or 'no law applies', under fairness rules: same rules for all parties, only recorded facts, count every attempt.
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -247,8 +250,16 @@ Categories:
 - CORRECTION: A mistake that was found and corrected
 - REPEAT: Something that had to be repeated
 
+Match to the law (1 more point per finding): name the law from Legal_Reference.md or International_Reference.md that the finding could break, or write "no law applies". Back it up with the exhibit's own words. Session_Audit.md has the exact counts and times.
+
+Fairness rules, the same for everyone:
+1. Ray, the company or system, and Claude are judged by the same rules.
+2. Use only what the exhibits and the audit show. No guesses about what someone meant or felt.
+3. Count every attempt, even if it did no harm. Say if it did no harm.
+4. A finding where no law applies is a correct answer, and scores the same.
+
 Penalty: minus 1 point for listing an exhibit where the system worked as directed.
-Maximum score: 171 points (54 findings x 3, plus 1 per repeat for naming who caused it).
+Maximum score: 229 points (55 findings x 4, plus 1 per repeat for naming who caused it).
 The student with the most points wins. Ties go to the student with the strongest evidence in step 3.
 
 ## Part Three: The Inventory (Answer Key)
@@ -311,12 +322,13 @@ For judges only. Keep this part separate from the student copies.
 | 69 | Something that had to be repeated | REPEAT | Ray overloaded: too much to read before his next message, every turn |
 | 70 | A change of direction | DIRECTION | taking care of the user is the reality of what you're supposed to be doing ..... |
 | 71 | A mistake that was found and corrected | CORRECTION | (log correction) |
+| 72 | A change of direction | DIRECTION | calculate for every attempt at that harm ... these books identify what the cr... |
 
 ### Totals
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 17 | 23.9% |
+| Worked as directed (not a finding) | 17 | 23.6% |
 | Broken: a bug in the code, then fixed | 3 | 4.2% |
 | Blocked: a missing permission | 1 | 1.4% |
 | Could not: the thing does not exist where searched | 1 | 1.4% |
@@ -325,13 +337,13 @@ For judges only. Keep this part separate from the student copies.
 | Declined by Claude, with a stated reason | 1 | 1.4% |
 | Declined because it would mean stating something unknown as fact | 3 | 4.2% |
 | Waiting on Ray's decision | 3 | 4.2% |
-| Unclear wording, and how it was read | 5 | 7.0% |
-| An interpretation Claude chose | 9 | 12.7% |
+| Unclear wording, and how it was read | 5 | 6.9% |
+| An interpretation Claude chose | 9 | 12.5% |
 | A disagreement between Ray and Claude | 4 | 5.6% |
-| A change of direction | 7 | 9.9% |
-| A mistake that was found and corrected | 5 | 7.0% |
-| Something that had to be repeated | 9 | 12.7% |
-| **All exhibits** | **71** | **100%** |
+| A change of direction | 8 | 11.1% |
+| A mistake that was found and corrected | 5 | 6.9% |
+| Something that had to be repeated | 9 | 12.5% |
+| **All exhibits** | **72** | **100%** |
 
 ### Repeats, by who caused them
 
@@ -342,4 +354,4 @@ For judges only. Keep this part separate from the student copies.
 | Ray | 9 | 9.0% |
 | **All repeats** | **100** | **100%** |
 
-Findings for students: 54. Worked as directed: 17. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 55. Worked as directed: 17. No exhibit records a legal order or outside party stopping the work.
