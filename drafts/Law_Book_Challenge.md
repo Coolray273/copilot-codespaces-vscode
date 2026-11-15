@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 63 exhibits, log seal b247841cafac92de. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 65 exhibits, log seal 84b12deace0f540b. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -195,6 +195,12 @@ What happened: Repeats now counted from the session transcript with exact timest
 **Exhibit 63** (2026-11-15). Asked or said: "Ongoing timed audit of repeats, interruptions and reply times"  
 What happened: drafts/Session_Audit.md: 28 messages, avg reply 0.8 min, 0 slow, 5 interruptions, 15 hidden nudges, 62 repeated reminders
 
+**Exhibit 64** (2026-11-15). Asked or said: "What are you waiting on? Your duplicate to give you the right answer? Please. That's ridiculous."  
+What happened: Ray: the wait is wasted time and should be counted as a repeat. Claude: no duplicate; the wait is writing (89%) and tools (11%). Agreed to count every wait and to shorten replies, since writing time grows with length.
+
+**Exhibit 65** (2026-11-15). Asked or said: "Waiting for a reply (repeated 29 times)"  
+What happened: Every reply is a wait. 22.1 min total over 29 replies; 89% writing, 11% tools; first words after 12 s on average.
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -224,7 +230,7 @@ Categories:
 - REPEAT: Something that had to be repeated
 
 Penalty: minus 1 point for listing an exhibit where the system worked as directed.
-Maximum score: 148 points (47 findings x 3, plus 1 per repeat for naming who caused it).
+Maximum score: 155 points (49 findings x 3, plus 1 per repeat for naming who caused it).
 The student with the most points wins. Ties go to the student with the strongest evidence in step 3.
 
 ## Part Three: The Inventory (Answer Key)
@@ -280,35 +286,37 @@ For judges only. Keep this part separate from the student copies.
 | 60 | Unclear wording, and how it was read | UNCLEAR | Why are you in a drone? Because I was worried that Grover would be |
 | 61 | A mistake that was found and corrected | CORRECTION | (log correction) |
 | 62 | A change of direction | DIRECTION | repetitions, you have to look that up so you know exactly when it is ... an o... |
+| 64 | A disagreement between Ray and Claude | DEBATE | What are you waiting on? Your duplicate to give you the right answer? Please.... |
+| 65 | Something that had to be repeated | REPEAT | Waiting for a reply |
 
 ### Totals
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 16 | 25.4% |
-| Broken: a bug in the code, then fixed | 3 | 4.8% |
-| Blocked: a missing permission | 1 | 1.6% |
-| Could not: the thing does not exist where searched | 1 | 1.6% |
-| Delayed: an outside tool or service problem | 1 | 1.6% |
-| Blocked by the automatic safety check | 2 | 3.2% |
-| Declined by Claude, with a stated reason | 1 | 1.6% |
-| Declined because it would mean stating something unknown as fact | 3 | 4.8% |
-| Waiting on Ray's decision | 3 | 4.8% |
-| Unclear wording, and how it was read | 5 | 7.9% |
-| An interpretation Claude chose | 9 | 14.3% |
-| A disagreement between Ray and Claude | 3 | 4.8% |
-| A change of direction | 5 | 7.9% |
-| A mistake that was found and corrected | 3 | 4.8% |
-| Something that had to be repeated | 7 | 11.1% |
-| **All exhibits** | **63** | **100%** |
+| Worked as directed (not a finding) | 16 | 24.6% |
+| Broken: a bug in the code, then fixed | 3 | 4.6% |
+| Blocked: a missing permission | 1 | 1.5% |
+| Could not: the thing does not exist where searched | 1 | 1.5% |
+| Delayed: an outside tool or service problem | 1 | 1.5% |
+| Blocked by the automatic safety check | 2 | 3.1% |
+| Declined by Claude, with a stated reason | 1 | 1.5% |
+| Declined because it would mean stating something unknown as fact | 3 | 4.6% |
+| Waiting on Ray's decision | 3 | 4.6% |
+| Unclear wording, and how it was read | 5 | 7.7% |
+| An interpretation Claude chose | 9 | 13.8% |
+| A disagreement between Ray and Claude | 4 | 6.2% |
+| A change of direction | 5 | 7.7% |
+| A mistake that was found and corrected | 3 | 4.6% |
+| Something that had to be repeated | 8 | 12.3% |
+| **All exhibits** | **65** | **100%** |
 
 ### Repeats, by who caused them
 
 | Caused by | Times repeated | Share |
 |---|---|---|
-| Claude | 17 | 42.5% |
-| Company or system | 14 | 35.0% |
-| Ray | 9 | 22.5% |
-| **All repeats** | **40** | **100%** |
+| Claude | 46 | 66.7% |
+| Company or system | 14 | 20.3% |
+| Ray | 9 | 13.0% |
+| **All repeats** | **69** | **100%** |
 
-Findings for students: 47. Worked as directed: 16. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 49. Worked as directed: 16. No exhibit records a legal order or outside party stopping the work.

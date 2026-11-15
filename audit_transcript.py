@@ -65,19 +65,33 @@ def turns(rows):
     for r in rows:
         t = r.get("type")
         if t == "user":
+            c = r.get("message", {}).get("content")
+            if cur is not None and isinstance(c, list):
+                for x in c:
+                    if isinstance(x, dict) and x.get("type") == "tool_result" and x.get("tool_use_id") in cur["pending"]:
+                        start = cur["pending"].pop(x["tool_use_id"])
+                        cur["tool_secs"] += max(0.0, (ts(r["timestamp"]) - start).total_seconds())
             txt = text_of(r.get("message", {}))
             if txt.startswith("Stop hook feedback"):
                 hooks.append((r["timestamp"], short(txt.split("]:", 1)[-1])))
                 continue
             if r.get("isMeta") or not txt.strip() or txt.strip() == "Tool loaded.":
                 continue
-            cur = {"at": r["timestamp"], "said": txt, "replies": [], "last": None}
+            cur = {"at": r["timestamp"], "said": txt, "replies": [], "last": None,
+                   "first_text": None, "tool_secs": 0.0, "tools": 0, "pending": {}}
             out.append(cur)
         elif t == "assistant" and cur is not None:
-            txt = text_of(r.get("message", {}))
+            msg = r.get("message", {})
+            txt = text_of(msg)
             cur["last"] = r["timestamp"]
+            if isinstance(msg.get("content"), list):
+                for x in msg["content"]:
+                    if isinstance(x, dict) and x.get("type") == "tool_use":
+                        cur["pending"][x.get("id")] = ts(r["timestamp"])
+                        cur["tools"] += 1
             if txt.strip():
                 cur["replies"].append(txt)
+                cur["first_text"] = cur["first_text"] or r["timestamp"]
         elif t == "attachment" and (r.get("attachment") or {}).get("type") == "task_reminder":
             nudges.append(r["timestamp"])
     return out, hooks, nudges
@@ -116,6 +130,28 @@ def build(paths):
             flag = " (slow)"
         took_s = f"{took / 60:.1f} min{flag}" if took is not None else "no reply"
         md.append(f"| {i} | {t['at'][:16].replace('T', ' ')} | {short(t['said']).replace('|', '/')} | {took_s} | {ref} | {dire} |")
+    md.append("")
+
+    # 1b. Waiting time, counted on every reply
+    md += ["## 1b. Waiting time on every reply", "",
+           "Every reply is a wait, so every reply is counted. 'First words' is how long until anything appeared. "
+           "'Tools' is time spent running code, tests and saves. 'Writing' is the rest.", "",
+           "| # | Time | Total wait | First words after | Tools (count) | Writing |", "|---|---|---|---|---|---|"]
+    tot = {"wait": 0.0, "tools": 0.0, "write": 0.0, "first": 0.0, "n": 0}
+    for i, t in enumerate(tl, 1):
+        if not t["last"]:
+            continue
+        wait = (ts(t["last"]) - ts(t["at"])).total_seconds()
+        first = (ts(t["first_text"]) - ts(t["at"])).total_seconds() if t["first_text"] else wait
+        tools = min(t["tool_secs"], wait)
+        write = wait - tools
+        tot["wait"] += wait; tot["tools"] += tools; tot["write"] += write; tot["first"] += first; tot["n"] += 1
+        md.append(f"| {i} | {t['at'][11:16]} | {wait:.0f} s | {first:.0f} s | {tools:.0f} s ({t['tools']}) | {write:.0f} s |")
+    if tot["n"]:
+        md += ["", f"Waits counted: {tot['n']}. Total waiting: {tot['wait'] / 60:.1f} min. "
+               f"Tools: {tot['tools'] / 60:.1f} min ({tot['tools'] / tot['wait']:.0%}). "
+               f"Writing: {tot['write'] / 60:.1f} min ({tot['write'] / tot['wait']:.0%}). "
+               f"Average time until first words: {tot['first'] / tot['n']:.0f} s."]
     md.append("")
 
     # 2. Interruptions shown in the conversation
@@ -160,7 +196,8 @@ def build(paths):
     took_all = [(ts(t["last"]) - ts(t["at"])).total_seconds() for t in tl if t["last"]]
     avg = sum(took_all) / len(took_all) / 60 if took_all else 0
     md += ["## 5. Totals", "",
-           f"- Messages from Ray: {len(tl)}.",
+           f"- Messages from Ray: {len(tl)}. Waits: {tot['n']}, totalling {tot['wait'] / 60:.1f} min "
+           f"(tools {tot['tools'] / 60:.1f} min, writing {tot['write'] / 60:.1f} min).",
            f"- Average reply time: {avg:.1f} min. Slowest: {max(took_all) / 60 if took_all else 0:.1f} min. Slow replies (over {SLOW_SECONDS // 60} min): {slow}.",
            f"- Automatic interruptions shown in the chat: {len(hooks)}.",
            f"- Automatic nudges to Claude: {len(nudges)}.",
