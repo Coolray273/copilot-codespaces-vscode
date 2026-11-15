@@ -2,6 +2,7 @@
 
 ## How Ray wants to work
 - Keep answers short: what's good, what's better, and why. No long lessons.
+- Ray has dyslexia and reads at a third-grade level. Write at that level: short sentences, plain words, a few lines. Never assume adult reading speed.
 - Standing command from Ray: "Always do as I would do. Protect." Act on protective fixes without waiting.
 - Never just say no. Always give a solution or a clear reason.
 - Fix problems and keep work moving without asking each time.
