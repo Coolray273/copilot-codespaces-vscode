@@ -1,6 +1,6 @@
 # Session Audit: Timing, Interruptions, Repeats and Refusal Language
 
-Built automatically from 1 transcript file(s), 582 recorded events. Times are UTC. Quotes are cut short to keep private details out. Replies slower than 3 minutes are flagged.
+Built automatically from 1 transcript file(s), 592 recorded events. Times are UTC. Quotes are cut short to keep private details out. Replies slower than 3 minutes are flagged.
 
 ## 1. Every message from Ray, and how long the reply took
 
@@ -34,7 +34,8 @@ Built automatically from 1 transcript file(s), 582 recorded events. Times are UT
 | 26 | 2026-11-15 05:16 | in a continuous duplicate of all the breakdowns of different things... | 1.0 min | 3 | 0 |
 | 27 | 2026-11-15 05:17 | And obviously the repeat, or how many times I, the company, or the ... | 0.8 min | 2 | 0 |
 | 28 | 2026-11-15 05:19 | repetitions, you have to look that up so you know exactly when it i... | 1.9 min | 5 | 1 |
-| 29 | 2026-11-15 05:21 | And the time that it wastes on the response also has to be calculat... | 0.5 min | 0 | 0 |
+| 29 | 2026-11-15 05:21 | And the time that it wastes on the response also has to be calculat... | 0.6 min | 0 | 0 |
+| 30 | 2026-11-15 05:24 | And its responses of account is still off, trying to keep the numbe... | 0.3 min | 0 | 0 |
 
 ## 1b. Waiting time on every reply
 
@@ -70,9 +71,49 @@ Every reply is a wait, so every reply is counted. 'First words' is how long unti
 | 26 | 05:16 | 57 s | 14 s | 2 s (3) | 55 s |
 | 27 | 05:17 | 48 s | 13 s | 3 s (2) | 45 s |
 | 28 | 05:19 | 113 s | 6 s | 15 s (8) | 97 s |
-| 29 | 05:21 | 28 s | 7 s | 0 s (2) | 28 s |
+| 29 | 05:21 | 38 s | 7 s | 4 s (2) | 33 s |
+| 30 | 05:24 | 18 s | 9 s | 0 s (1) | 18 s |
 
-Waits counted: 29. Total waiting: 22.3 min. Tools: 2.4 min (11%). Writing: 19.8 min (89%). Average time until first words: 12 s.
+Waits counted: 30. Total waiting: 22.7 min. Tools: 2.5 min (11%). Writing: 20.2 min (89%). Average time until first words: 12 s.
+
+## 1c. Words on the account
+
+Every word Claude wrote is counted, including words Ray did not ask for. Judges can compare each reply's length with the request.
+
+| # | Time | Ray's words | Claude's words (all replies) | Ratio | Apologies |
+|---|---|---|---|---|---|
+| 1 | 09:50 | 607 | 462 | 0.8x | 0 |
+| 2 | 09:51 | 4 | 314 | 78.5x | 0 |
+| 3 | 09:53 | 4 | 239 | 59.8x | 0 |
+| 4 | 09:54 | 8 | 146 | 18.2x | 0 |
+| 5 | 04:43 | 652 | 589 | 0.9x | 0 |
+| 6 | 04:46 | 23 | 226 | 9.8x | 0 |
+| 7 | 04:48 | 64 | 557 | 8.7x | 0 |
+| 8 | 04:51 | 17 | 246 | 14.5x | 0 |
+| 9 | 04:52 | 69 | 339 | 4.9x | 0 |
+| 10 | 04:53 | 89 | 138 | 1.6x | 0 |
+| 11 | 04:54 | 61 | 306 | 5.0x | 0 |
+| 12 | 04:56 | 203 | 285 | 1.4x | 1 |
+| 13 | 05:01 | 11 | 246 | 22.4x | 0 |
+| 14 | 05:02 | 1 | 261 | 261.0x | 0 |
+| 15 | 05:02 | 17 | 218 | 12.8x | 0 |
+| 16 | 05:04 | 144 | 292 | 2.0x | 0 |
+| 17 | 05:05 | 172 | 396 | 2.3x | 0 |
+| 18 | 05:07 | 131 | 289 | 2.2x | 0 |
+| 19 | 05:08 | 160 | 437 | 2.7x | 0 |
+| 20 | 05:09 | 72 | 404 | 5.6x | 0 |
+| 21 | 05:10 | 95 | 309 | 3.3x | 0 |
+| 22 | 05:11 | 238 | 444 | 1.9x | 0 |
+| 23 | 05:13 | 21 | 337 | 16.0x | 0 |
+| 24 | 05:14 | 48 | 552 | 11.5x | 0 |
+| 25 | 05:15 | 68 | 290 | 4.3x | 0 |
+| 26 | 05:16 | 82 | 448 | 5.5x | 0 |
+| 27 | 05:17 | 68 | 340 | 5.0x | 0 |
+| 28 | 05:19 | 258 | 385 | 1.5x | 0 |
+| 29 | 05:21 | 64 | 212 | 3.3x | 0 |
+| 30 | 05:24 | 604 | 37 | 0.1x | 0 |
+
+Total: Ray 4055 words, Claude 9744 words (2.4 words for every word from Ray). Apologies: 1.
 
 ## 2. Automatic interruptions shown in the conversation
 
@@ -99,7 +140,7 @@ Same kind of reminder or statement, even when the wording changes. Counted once 
 | Reminder: approve transfer | 13 | 2026-11-15 04:48 | 2026-11-15 05:19 |
 | Reminder: make the repository private | 5 | 2026-11-15 05:05 | 2026-11-15 05:15 |
 | Reminder: list of items waiting on Ray | 14 | 2026-11-15 04:51 | 2026-11-15 05:19 |
-| Status line: saved to GitHub / checks pass | 14 | 2026-11-15 04:54 | 2026-11-15 05:19 |
+| Status line: saved to GitHub / checks pass | 15 | 2026-11-15 04:54 | 2026-11-15 05:21 |
 | Explaining a limit or block | 13 | 2026-11-15 04:48 | 2026-11-15 05:19 |
 | Pointing to a lawyer | 7 | 2026-11-15 04:46 | 2026-11-15 05:14 |
 
@@ -112,10 +153,11 @@ Exact lines repeated in 3 or more replies:
 
 ## 5. Totals
 
-- Messages from Ray: 29. Waits: 29, totalling 22.3 min (tools 2.4 min, writing 19.8 min).
+- Messages from Ray: 30. Waits: 30, totalling 22.7 min (tools 2.5 min, writing 20.2 min).
 - Average reply time: 0.8 min. Slowest: 1.9 min. Slow replies (over 3 min): 0.
+- Words: Ray 4055, Claude 9744. Apologies by Claude: 1.
 - Automatic interruptions shown in the chat: 5.
 - Automatic nudges to Claude: 16.
-- Replies containing a repeated reminder or statement: 66.
+- Replies containing a repeated reminder or statement: 67.
 - Refusal words across all final replies: 55. 'You must' words: 5.
 - Not in this record: anything shown only in Ray's app, such as usage-limit warnings or countdown timers. Those can be added to the activity log as they happen.

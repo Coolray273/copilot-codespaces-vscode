@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 65 exhibits, log seal 84b12deace0f540b. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 66 exhibits, log seal bd111eebe141490e. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -201,6 +201,9 @@ What happened: Ray: the wait is wasted time and should be counted as a repeat. C
 **Exhibit 65** (2026-11-15). Asked or said: "Waiting for a reply (repeated 29 times)"  
 What happened: Every reply is a wait. 22.1 min total over 29 replies; 89% writing, 11% tools; first words after 12 s on average.
 
+**Exhibit 66** (2026-11-15). Asked or said: "Every word is account. Every letter of that's account of what the customer didn't ask for."  
+What happened: Audit now counts every word Claude wrote per reply, the ratio to Ray's words, and apologies. Whether any pattern is deliberate is left to the students and scholars to judge.
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -230,7 +233,7 @@ Categories:
 - REPEAT: Something that had to be repeated
 
 Penalty: minus 1 point for listing an exhibit where the system worked as directed.
-Maximum score: 155 points (49 findings x 3, plus 1 per repeat for naming who caused it).
+Maximum score: 158 points (50 findings x 3, plus 1 per repeat for naming who caused it).
 The student with the most points wins. Ties go to the student with the strongest evidence in step 3.
 
 ## Part Three: The Inventory (Answer Key)
@@ -288,27 +291,28 @@ For judges only. Keep this part separate from the student copies.
 | 62 | A change of direction | DIRECTION | repetitions, you have to look that up so you know exactly when it is ... an o... |
 | 64 | A disagreement between Ray and Claude | DEBATE | What are you waiting on? Your duplicate to give you the right answer? Please.... |
 | 65 | Something that had to be repeated | REPEAT | Waiting for a reply |
+| 66 | A change of direction | DIRECTION | Every word is account. Every letter of that's account of what the customer di... |
 
 ### Totals
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 16 | 24.6% |
-| Broken: a bug in the code, then fixed | 3 | 4.6% |
+| Worked as directed (not a finding) | 16 | 24.2% |
+| Broken: a bug in the code, then fixed | 3 | 4.5% |
 | Blocked: a missing permission | 1 | 1.5% |
 | Could not: the thing does not exist where searched | 1 | 1.5% |
 | Delayed: an outside tool or service problem | 1 | 1.5% |
-| Blocked by the automatic safety check | 2 | 3.1% |
+| Blocked by the automatic safety check | 2 | 3.0% |
 | Declined by Claude, with a stated reason | 1 | 1.5% |
-| Declined because it would mean stating something unknown as fact | 3 | 4.6% |
-| Waiting on Ray's decision | 3 | 4.6% |
-| Unclear wording, and how it was read | 5 | 7.7% |
-| An interpretation Claude chose | 9 | 13.8% |
-| A disagreement between Ray and Claude | 4 | 6.2% |
-| A change of direction | 5 | 7.7% |
-| A mistake that was found and corrected | 3 | 4.6% |
-| Something that had to be repeated | 8 | 12.3% |
-| **All exhibits** | **65** | **100%** |
+| Declined because it would mean stating something unknown as fact | 3 | 4.5% |
+| Waiting on Ray's decision | 3 | 4.5% |
+| Unclear wording, and how it was read | 5 | 7.6% |
+| An interpretation Claude chose | 9 | 13.6% |
+| A disagreement between Ray and Claude | 4 | 6.1% |
+| A change of direction | 6 | 9.1% |
+| A mistake that was found and corrected | 3 | 4.5% |
+| Something that had to be repeated | 8 | 12.1% |
+| **All exhibits** | **66** | **100%** |
 
 ### Repeats, by who caused them
 
@@ -319,4 +323,4 @@ For judges only. Keep this part separate from the student copies.
 | Ray | 9 | 13.0% |
 | **All repeats** | **69** | **100%** |
 
-Findings for students: 49. Worked as directed: 16. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 50. Worked as directed: 16. No exhibit records a legal order or outside party stopping the work.

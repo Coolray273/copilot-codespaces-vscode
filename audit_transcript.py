@@ -29,6 +29,7 @@ FAMILIES = {
     "Pointing to a lawyer": r"\blawyer\b|attorney",
 }
 REFUSAL = r"\b(can.t|cannot|won.t|not possible|isn.t possible|declined?|refus\w*|blocked|no evidence|made up|invented)\b"
+APOLOGY = r"\b(sorry|apologi[sz]e\w*|my (mistake|fault|bad)|that.s on me|i was wrong)\b"
 DIRECTIVE = r"\b(you need to|you have to|you must|only you can|you.ll need)\b"
 
 
@@ -154,6 +155,20 @@ def build(paths):
                f"Average time until first words: {tot['first'] / tot['n']:.0f} s."]
     md.append("")
 
+    # 1c. Words: every word is on the account
+    md += ["## 1c. Words on the account", "",
+           "Every word Claude wrote is counted, including words Ray did not ask for. Judges can compare each reply's length with the request.", "",
+           "| # | Time | Ray's words | Claude's words (all replies) | Ratio | Apologies |", "|---|---|---|---|---|---|"]
+    w_ray = w_cl = apol = 0
+    for i, t in enumerate(tl, 1):
+        r_w = len(t["said"].split())
+        c_txt = "\n".join(t["replies"])
+        c_w = len(c_txt.split())
+        a = len(re.findall(APOLOGY, c_txt, re.I))
+        w_ray += r_w; w_cl += c_w; apol += a
+        md.append(f"| {i} | {t['at'][11:16]} | {r_w} | {c_w} | {c_w / max(r_w, 1):.1f}x | {a} |")
+    md += ["", f"Total: Ray {w_ray} words, Claude {w_cl} words ({w_cl / max(w_ray, 1):.1f} words for every word from Ray). Apologies: {apol}.", ""]
+
     # 2. Interruptions shown in the conversation
     md += ["## 2. Automatic interruptions shown in the conversation", "",
            f"Count: {len(hooks)}. Each one appeared as a message in the chat, from an automatic check, not from Ray.", "",
@@ -199,6 +214,7 @@ def build(paths):
            f"- Messages from Ray: {len(tl)}. Waits: {tot['n']}, totalling {tot['wait'] / 60:.1f} min "
            f"(tools {tot['tools'] / 60:.1f} min, writing {tot['write'] / 60:.1f} min).",
            f"- Average reply time: {avg:.1f} min. Slowest: {max(took_all) / 60 if took_all else 0:.1f} min. Slow replies (over {SLOW_SECONDS // 60} min): {slow}.",
+           f"- Words: Ray {w_ray}, Claude {w_cl}. Apologies by Claude: {apol}.",
            f"- Automatic interruptions shown in the chat: {len(hooks)}.",
            f"- Automatic nudges to Claude: {len(nudges)}.",
            f"- Replies containing a repeated reminder or statement: {fam_total}.",
