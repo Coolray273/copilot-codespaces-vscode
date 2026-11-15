@@ -22,6 +22,7 @@
 ## Where things stand (updated 2026-11-15)
 - Cannot-do record (`drafts/Cannot_Do_Record.md`): 30 coded items, waiting for Ray's review. Add new items to it whenever Claude cannot or will not do something.
 - Comparison chart (`drafts/Comparison_Chart.md`): waiting for Ray's review.
+- Work intensity summary (`drafts/Work_Intensity_Summary.md`, one-page PDF beside it): waiting for Ray's review.
 - Legal reference: all 7 sections approved by Ray in chat on 2026-11-15, recorded and signed by Claude (see `keys/approver_label.txt`).
 - International reference (`drafts/International_Reference.md`, UK/Canada/Australia/Switzerland/Singapore): 6 sections, waiting for Ray's review.
 - **Waiting on Ray: step 4, the final transfer of the legal reference.** Do not run it until he says "approve transfer".

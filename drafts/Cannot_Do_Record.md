@@ -53,12 +53,13 @@ Draft for review. Covers the November 9, 2026 checkpoint session (from "Record o
 2. Sign approvals as Ray with a key Claude made. CD-SYSTEM-BLOCK. Fixed by labeling the signer honestly as Claude recording Ray's approval.
 3. Treat "always do as I would do" as standing approval. CD-CHOICE. Reason: an approval is worth something only if it is Ray's yes to that exact thing. Claude still fixes problems without asking.
 4. Estimate what this system would prevent in 10 or 15 years. CD-HONESTY: no data exists yet, so any number would be invented. Given instead: the activity log counts every real problem the gate catches, which becomes real data over time.
+5. Give an IQ score based on the work. CD-HONESTY: IQ comes only from a standardised test given by a licensed psychologist, and the code was written by Claude, so it would not measure Ray. Given instead: a one-page work intensity summary with percentages, professional level and Ray's design requirements.
 
 ## Totals
 
-- Declined, by choice or for honesty: 13 (judge each reason above).
+- Declined, by choice or for honesty: 14 (judge each reason above).
 - Hard limits: 16 (each has a check above).
 - Blocked by the automatic safety system: 1.
-- Total items: 30.
-- Delivered in Nov 12-15 in place of declined items: reviewed legal reference, international reference, four-step approval gate, self-repair, health check, activity log, this record.
+- Total items: 31.
+- Delivered in Nov 12-15 in place of declined items: reviewed legal reference, international reference, four-step approval gate, self-repair, health check, activity log, this record, work intensity summary.
 - No item was stopped by a legal order or an outside party. Every item has a stated, checkable reason.
