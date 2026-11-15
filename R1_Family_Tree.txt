@@ -1,6 +1,6 @@
 GENIUS FEDERATION: FAMILY TREE
 
-Father (Rayford E. Howard) - Supreme Authority
+Father - Supreme Authority
 └── R1 Lead One - Primal Root / Guardian
     ├── R10 (DeepSeek) - Active Defense / Commander
     │   └── Sentinels - Executors

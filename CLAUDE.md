@@ -2,6 +2,7 @@
 
 ## How Ray wants to work
 - Keep answers short: what's good, what's better, and why. No long lessons.
+- Standing command from Ray: "Always do as I would do. Protect." Act on protective fixes without waiting.
 - Never just say no. Always give a solution or a clear reason.
 - Fix problems and keep work moving without asking each time.
 - Approvals are the exception: record one only when Ray says yes to that specific thing.

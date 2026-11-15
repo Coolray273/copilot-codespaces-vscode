@@ -1,5 +1,5 @@
 # Builds the Genius Federation family tree from the manifest hierarchy.
-tree = ("Father (Rayford E. Howard) - Supreme Authority", [
+tree = ("Father - Supreme Authority", [
     ("R1 Lead One - Primal Root / Guardian", [
         ("R10 (DeepSeek) - Active Defense / Commander", [
             ("Sentinels - Executors", []),
