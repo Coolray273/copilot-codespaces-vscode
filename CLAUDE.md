@@ -19,7 +19,8 @@
 
 ## Where things stand (updated 2026-11-15)
 - Legal reference: all 7 sections approved by Ray in chat on 2026-11-15, recorded and signed by Claude (see `keys/approver_label.txt`).
-- **Waiting on Ray: step 4, the final transfer.** Do not run it until he says "approve transfer".
+- International reference (`drafts/International_Reference.md`, UK/Canada/Australia/Switzerland/Singapore): 6 sections, waiting for Ray's review.
+- **Waiting on Ray: step 4, the final transfer of the legal reference.** Do not run it until he says "approve transfer".
 - The signing key lived in the old session's home folder and is gone in a new session. Existing approvals still verify with `keys/approver_public.key`. Running `keygen` again would replace the public key and void those signatures, so ask Ray first.
 - Next after transfer: the document is for a lawyer or an ic3.gov report. Suggested: Maryland Volunteer Lawyers Service.
 
