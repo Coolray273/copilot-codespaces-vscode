@@ -18,8 +18,6 @@ from datetime import datetime
 
 OUT = os.path.join("drafts", "Session_Audit.md")
 SLOW_SECONDS = 180
-READ_WPM = 60     # Ray: third-grade reading level with dyslexia
-SPEAK_WPM = 130
 
 # Families of repeated reminders: same structure, different wording.
 FAMILIES = {
@@ -116,24 +114,17 @@ def build(paths):
           f"Times are UTC. Quotes are cut short to keep private details out. Replies slower than "
           f"{SLOW_SECONDS // 60} minutes are flagged.", ""]
 
-    # 0. The user's load: the most important finding, so it comes first
-    over, rows0 = 0, []
+    # 0. Measured facts per turn: no estimates, no labels
+    md += ["## 0. Measured per turn", "",
+           "Only what the record shows: how many words Claude wrote, and how many minutes passed before Ray's next message. "
+           "No reading speeds or other estimates are used.", "",
+           "| # | Time | Claude's words | Minutes until Ray's next message |", "|---|---|---|---|"]
     for i, t in enumerate(tl):
         if i + 1 >= len(tl) or not t["last"]:
             continue
         gap = (ts(tl[i + 1]["at"]) - ts(t["last"])).total_seconds() / 60
-        if gap > 180:
-            continue  # a rest break, not a turn
-        need = len("\n".join(t["replies"]).split()) / READ_WPM + len(tl[i + 1]["said"].split()) / SPEAK_WPM
-        if need > gap:
-            over += 1
-        rows0.append((i + 1, t["at"][11:16], need, gap))
-    md += ["## 0. Ray's load (most important)", "",
-           f"Ray reads at a third-grade level with dyslexia (about {READ_WPM} words a minute). This counts every turn where "
-           "Claude's reply was too much to read before Ray's next message. Each one is the same strain, repeated.", "",
-           f"**Overloaded turns: {over} of {len(rows0)}.**", "",
-           "| # | Time | Minutes needed to read and reply | Minutes Ray had |", "|---|---|---|---|"]
-    md += [f"| {n} | {at} | {need:.1f} | {gap:.1f} |" for n, at, need, gap in rows0]
+        words = len("\n".join(t["replies"]).split())
+        md.append(f"| {i + 1} | {t['at'][11:16]} | {words} | {'rest break, ' if gap > 180 else ''}{gap:.1f} |")
     md.append("")
 
     # 1. Timeline
