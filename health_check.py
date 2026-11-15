@@ -7,7 +7,8 @@ Checks:
   2. Code        every script compiles without errors
   3. Storage     manifest files exist and none are duplicates
   4. Approvals   every recorded approval has a valid signature and matches the current text
-  5. GitHub      no unsaved changes, and nothing waiting to be pushed
+  5. Activity    the activity log's hash chain is intact
+  6. GitHub      no unsaved changes, and nothing waiting to be pushed
 Then it computes the system fingerprint: one SHA-256 over every tracked file.
 If any file changes, the fingerprint changes. Each run is logged in health_log.json,
 so you can see when the system last checked out clean and whether anything changed since.
@@ -16,7 +17,7 @@ import glob, hashlib, json, os, subprocess
 from datetime import datetime, timezone
 
 CORE = ["generate_exports.py", "storage_guard.py", "family_tree.py", "approval_gate.py",
-        "requirements.txt", "CLAUDE.md", "drafts/Legal_Reference.md", "drafts/International_Reference.md", "keys/approver_public.key"]
+        "requirements.txt", "CLAUDE.md", "drafts/Legal_Reference.md", "drafts/International_Reference.md", "keys/approver_public.key", "activity_log.py"]
 MANIFEST = ["R1_Master_Manifest.txt", "R1_Master_Manifest.docx", "R1_Master_Manifest.pdf"]
 LOG = "health_log.json"
 
@@ -81,6 +82,14 @@ def check_approvals():
     return True, f"{total} approvals, all signatures valid"
 
 
+def check_activity_log():
+    import activity_log as a
+    if not os.path.exists(a.LOG):
+        return False, "activity log missing"
+    ok = a.verify(quiet=True)
+    return ok, f"{len(a.read())} entries, chain intact" if ok else "chain broken: an entry was changed or removed"
+
+
 def check_github():
     if git("status", "--porcelain", "--", ".", ":!health_log.json"):
         return False, "unsaved changes (not committed)"
@@ -100,7 +109,8 @@ def fingerprint():
 
 def main():
     checks = [("Files", check_files), ("Code", check_code), ("Storage", check_storage),
-              ("Approvals", check_approvals), ("GitHub", check_github)]
+              ("Approvals", check_approvals), ("Activity log", check_activity_log),
+              ("GitHub", check_github)]
     results = []
     for name, fn in checks:
         ok, detail = fn()

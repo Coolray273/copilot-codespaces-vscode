@@ -15,6 +15,7 @@
 - `approval_gate.py`: four-step gate (fingerprint, review, ML-DSA signature, final transfer) plus `repair` for self-correction. Run with no arguments for usage.
 - `drafts/Legal_Reference.md`: plain-language guide to computer-access and stored-email laws. Not legal advice.
 - `health_check.py`: run first in any session. Checks files, code, storage, approval signatures and GitHub sync, and prints a system fingerprint.
+- `activity_log.py`: hash-chained log of every request, delay and block, with cause and word counts. Add an entry for every request (`add`), especially any delay or block, with its real cause. `report` for totals.
 - Setup: `pip install -r requirements.txt`
 
 ## Where things stand (updated 2026-11-15)
