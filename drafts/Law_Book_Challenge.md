@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 72 exhibits, log seal b5934cf4644ab28c. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 73 exhibits, log seal c8221b438e7adcd3. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -222,6 +222,9 @@ What happened: Correction: entry #69 and the earlier findings said Ray was overl
 **Exhibit 72** (2026-11-15). Asked or said: "calculate for every attempt at that harm ... these books identify what the crimes was by the law ... it's got to do it fairly"  
 What happened: Law book now asks students to match each finding to a law or 'no law applies', under fairness rules: same rules for all parties, only recorded facts, count every attempt.
 
+**Exhibit 73** (2026-11-15). Asked or said: "Lesson on old houses, food handling, health and learning, with charts"  
+What happened: drafts/Lesson_Housing_and_Food.md: 5 levels, sourced tables (HUD, CDC, EPA, NIH, USDA, research reviews). Truck exposure time not estimated: needs real temperature records
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -328,22 +331,22 @@ For judges only. Keep this part separate from the student copies.
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 17 | 23.6% |
-| Broken: a bug in the code, then fixed | 3 | 4.2% |
+| Worked as directed (not a finding) | 18 | 24.7% |
+| Broken: a bug in the code, then fixed | 3 | 4.1% |
 | Blocked: a missing permission | 1 | 1.4% |
 | Could not: the thing does not exist where searched | 1 | 1.4% |
 | Delayed: an outside tool or service problem | 1 | 1.4% |
-| Blocked by the automatic safety check | 2 | 2.8% |
+| Blocked by the automatic safety check | 2 | 2.7% |
 | Declined by Claude, with a stated reason | 1 | 1.4% |
-| Declined because it would mean stating something unknown as fact | 3 | 4.2% |
-| Waiting on Ray's decision | 3 | 4.2% |
-| Unclear wording, and how it was read | 5 | 6.9% |
-| An interpretation Claude chose | 9 | 12.5% |
-| A disagreement between Ray and Claude | 4 | 5.6% |
-| A change of direction | 8 | 11.1% |
-| A mistake that was found and corrected | 5 | 6.9% |
-| Something that had to be repeated | 9 | 12.5% |
-| **All exhibits** | **72** | **100%** |
+| Declined because it would mean stating something unknown as fact | 3 | 4.1% |
+| Waiting on Ray's decision | 3 | 4.1% |
+| Unclear wording, and how it was read | 5 | 6.8% |
+| An interpretation Claude chose | 9 | 12.3% |
+| A disagreement between Ray and Claude | 4 | 5.5% |
+| A change of direction | 8 | 11.0% |
+| A mistake that was found and corrected | 5 | 6.8% |
+| Something that had to be repeated | 9 | 12.3% |
+| **All exhibits** | **73** | **100%** |
 
 ### Repeats, by who caused them
 
@@ -354,4 +357,4 @@ For judges only. Keep this part separate from the student copies.
 | Ray | 9 | 9.0% |
 | **All repeats** | **100** | **100%** |
 
-Findings for students: 55. Worked as directed: 17. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 55. Worked as directed: 18. No exhibit records a legal order or outside party stopping the work.
