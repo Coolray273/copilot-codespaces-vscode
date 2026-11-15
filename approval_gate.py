@@ -8,7 +8,7 @@
                         separate final approval. Only then is the file copied to outbox/.
 
 Usage:
-  python3 approval_gate.py keygen                      make your signing key (once)
+  python3 approval_gate.py keygen ["who signs"]        make the signing key (once), with who holds it
   python3 approval_gate.py review   drafts/NAME.md     show the whole document and decide
   python3 approval_gate.py status   drafts/NAME.md     where each section stands
   python3 approval_gate.py transfer drafts/NAME.md     final checks and final approval
@@ -29,6 +29,11 @@ from dilithium_py.ml_dsa import ML_DSA_65 as MLDSA
 
 SECRET_KEY = os.path.expanduser("~/.approval_gate/ml_dsa_secret.key")  # never in the repo
 PUBLIC_KEY = os.path.join("keys", "approver_public.key")
+LABEL_FILE = os.path.join("keys", "approver_label.txt")
+
+
+def approver():
+    return open(LABEL_FILE).read().strip() if os.path.exists(LABEL_FILE) else "key holder"
 
 
 def now():
@@ -44,7 +49,7 @@ def canon(rec):
     return json.dumps({k: v for k, v in rec.items() if k != "sig"}, sort_keys=True).encode()
 
 
-def keygen():
+def keygen(label="key holder"):
     if os.path.exists(SECRET_KEY):
         sys.exit(f"A key already exists at {SECRET_KEY}. Not overwriting it.")
     pk, sk = MLDSA.keygen()
@@ -55,6 +60,9 @@ def keygen():
     os.makedirs("keys", exist_ok=True)
     with open(PUBLIC_KEY, "w") as f:
         f.write(pk.hex())
+    with open(LABEL_FILE, "w") as f:
+        f.write(label + "\n")
+    print(f"Approvals will be signed as: {label}")
     print(f"Private key: {SECRET_KEY} (keep it secret, back it up)")
     print(f"Public key:  {PUBLIC_KEY} (safe to share; used to check signatures)")
 
@@ -116,7 +124,8 @@ def state(s, led):
 
 
 def record(path, led, s, status, note=None):
-    rec = {"section": s["title"], "status": status, "hash": s["hash"], "text": s["text"], "at": now()}
+    rec = {"section": s["title"], "status": status, "hash": s["hash"], "text": s["text"],
+           "approved_by": approver(), "at": now()}
     if note:
         rec["note"] = note
     sign(rec)
@@ -130,7 +139,7 @@ def status(path):
     for i, s in enumerate(secs, 1):
         print(f"{i}. [{state(s, led)}] {s['title']}")
     done = sum(state(s, led) == "APPROVED" for s in secs)
-    print(f"\n{done} of {len(secs)} sections approved.")
+    print(f"\n{done} of {len(secs)} sections approved. Signer: {approver()}")
     return secs, led
 
 
@@ -224,8 +233,8 @@ def transfer(path):
 
 
 def main():
-    if len(sys.argv) == 2 and sys.argv[1] == "keygen":
-        return keygen()
+    if len(sys.argv) in (2, 3) and sys.argv[1] == "keygen":
+        return keygen(*sys.argv[2:])
     cmds = {"review": review, "status": status, "transfer": transfer, "repair": repair}
     if len(sys.argv) != 3 or sys.argv[1] not in cmds:
         sys.exit(__doc__)
