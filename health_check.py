@@ -17,7 +17,7 @@ import glob, hashlib, json, os, subprocess
 from datetime import datetime, timezone
 
 CORE = ["generate_exports.py", "storage_guard.py", "family_tree.py", "approval_gate.py",
-        "requirements.txt", "CLAUDE.md", "drafts/Legal_Reference.md", "drafts/International_Reference.md", "drafts/Cannot_Do_Record.md", "drafts/Comparison_Chart.md", "keys/approver_public.key", "activity_log.py", "law_book.py", "drafts/Law_Book_Challenge.md"]
+        "requirements.txt", "CLAUDE.md", "drafts/Legal_Reference.md", "drafts/International_Reference.md", "drafts/Cannot_Do_Record.md", "drafts/Comparison_Chart.md", "keys/approver_public.key", "activity_log.py", "law_book.py", "audit_transcript.py", "drafts/Law_Book_Challenge.md"]
 MANIFEST = ["R1_Master_Manifest.txt", "R1_Master_Manifest.docx", "R1_Master_Manifest.pdf"]
 LOG = "health_log.json"
 

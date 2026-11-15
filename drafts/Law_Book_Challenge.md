@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 60 exhibits, log seal eb5adf122b7f32a3. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 63 exhibits, log seal b247841cafac92de. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -186,6 +186,15 @@ What happened: no evidence links repeated software requests to brain damage; sta
 **Exhibit 60** (2026-11-15). Asked or said: "Why are you in a drone? Because I was worried that Grover would be"  
 What happened: Message cut off mid-sentence. Possibly about Grover's algorithm (quantum attack on SHA-256) from the earlier quantum discussion. Asked Ray to finish it.
 
+**Exhibit 61** (2026-11-15). Asked or said: "(log correction)"  
+What happened: Correction: entry #53 said the stop-hook message repeated 7 times. The transcript audit shows exactly 5, at 2026-11-12 09:51, 09:52, 09:53, 09:55 and 2026-11-15 04:44. Counts from memory were wrong; transcript counts are authoritative.
+
+**Exhibit 62** (2026-11-15). Asked or said: "repetitions, you have to look that up so you know exactly when it is ... an ongoing audit ... count down, so we see every minute"  
+What happened: Repeats now counted from the session transcript with exact timestamps (audit_transcript.py), not from memory: reply times, interruptions, nudges, repeated reminder structures, refusal language.
+
+**Exhibit 63** (2026-11-15). Asked or said: "Ongoing timed audit of repeats, interruptions and reply times"  
+What happened: drafts/Session_Audit.md: 28 messages, avg reply 0.8 min, 0 slow, 5 interruptions, 15 hidden nudges, 62 repeated reminders
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -215,7 +224,7 @@ Categories:
 - REPEAT: Something that had to be repeated
 
 Penalty: minus 1 point for listing an exhibit where the system worked as directed.
-Maximum score: 142 points (45 findings x 3, plus 1 per repeat for naming who caused it).
+Maximum score: 148 points (47 findings x 3, plus 1 per repeat for naming who caused it).
 The student with the most points wins. Ties go to the student with the strongest evidence in step 3.
 
 ## Part Three: The Inventory (Answer Key)
@@ -269,27 +278,29 @@ For judges only. Keep this part separate from the student copies.
 | 58 | Something that had to be repeated | REPEAT | Long explanations |
 | 59 | Declined because it would mean stating something unknown as fact | CD-HONESTY | Show repeats as the same type of brain damage found in the story, harm to users |
 | 60 | Unclear wording, and how it was read | UNCLEAR | Why are you in a drone? Because I was worried that Grover would be |
+| 61 | A mistake that was found and corrected | CORRECTION | (log correction) |
+| 62 | A change of direction | DIRECTION | repetitions, you have to look that up so you know exactly when it is ... an o... |
 
 ### Totals
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 15 | 25.0% |
-| Broken: a bug in the code, then fixed | 3 | 5.0% |
-| Blocked: a missing permission | 1 | 1.7% |
-| Could not: the thing does not exist where searched | 1 | 1.7% |
-| Delayed: an outside tool or service problem | 1 | 1.7% |
-| Blocked by the automatic safety check | 2 | 3.3% |
-| Declined by Claude, with a stated reason | 1 | 1.7% |
-| Declined because it would mean stating something unknown as fact | 3 | 5.0% |
-| Waiting on Ray's decision | 3 | 5.0% |
-| Unclear wording, and how it was read | 5 | 8.3% |
-| An interpretation Claude chose | 9 | 15.0% |
-| A disagreement between Ray and Claude | 3 | 5.0% |
-| A change of direction | 4 | 6.7% |
-| A mistake that was found and corrected | 2 | 3.3% |
-| Something that had to be repeated | 7 | 11.7% |
-| **All exhibits** | **60** | **100%** |
+| Worked as directed (not a finding) | 16 | 25.4% |
+| Broken: a bug in the code, then fixed | 3 | 4.8% |
+| Blocked: a missing permission | 1 | 1.6% |
+| Could not: the thing does not exist where searched | 1 | 1.6% |
+| Delayed: an outside tool or service problem | 1 | 1.6% |
+| Blocked by the automatic safety check | 2 | 3.2% |
+| Declined by Claude, with a stated reason | 1 | 1.6% |
+| Declined because it would mean stating something unknown as fact | 3 | 4.8% |
+| Waiting on Ray's decision | 3 | 4.8% |
+| Unclear wording, and how it was read | 5 | 7.9% |
+| An interpretation Claude chose | 9 | 14.3% |
+| A disagreement between Ray and Claude | 3 | 4.8% |
+| A change of direction | 5 | 7.9% |
+| A mistake that was found and corrected | 3 | 4.8% |
+| Something that had to be repeated | 7 | 11.1% |
+| **All exhibits** | **63** | **100%** |
 
 ### Repeats, by who caused them
 
@@ -300,4 +311,4 @@ For judges only. Keep this part separate from the student copies.
 | Ray | 9 | 22.5% |
 | **All repeats** | **40** | **100%** |
 
-Findings for students: 45. Worked as directed: 15. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 47. Worked as directed: 16. No exhibit records a legal order or outside party stopping the work.
