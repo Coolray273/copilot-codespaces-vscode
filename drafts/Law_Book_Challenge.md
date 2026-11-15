@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 68 exhibits, log seal a62d1fa5991f2b01. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 70 exhibits, log seal 5cd135336d6584ea. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -210,6 +210,12 @@ What happened: Needed ~72 min to read and dictate; session was ~47.5 min; 26 of 
 **Exhibit 68** (2026-11-15). Asked or said: "(log correction)"  
 What happened: Correction: the words-against-time findings used an adult reading rate (200 wpm). Ray has dyslexia and reads at a third-grade level. At 60 to 110 wpm, reading everything takes 91 to 166 minutes, 2.4 to 4 times the session. Replies were also above his reading level.
 
+**Exhibit 69** (2026-11-15). Asked or said: "Ray overloaded: too much to read before his next message, every turn (repeated 31 times)"  
+What happened: Highest-rated finding. At Ray's reading level every one of 31 turns gave him more to read than he had time for. Claude watched the story and missed the user.
+
+**Exhibit 70** (2026-11-15). Asked or said: "taking care of the user is the reality of what you're supposed to be doing ... lock yourself into your role"  
+What happened: Claude's role is to support Ray, the builder and director, not to follow the story. The user's load now comes first in every audit.
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -239,7 +245,7 @@ Categories:
 - REPEAT: Something that had to be repeated
 
 Penalty: minus 1 point for listing an exhibit where the system worked as directed.
-Maximum score: 161 points (51 findings x 3, plus 1 per repeat for naming who caused it).
+Maximum score: 168 points (53 findings x 3, plus 1 per repeat for naming who caused it).
 The student with the most points wins. Ties go to the student with the strongest evidence in step 3.
 
 ## Part Three: The Inventory (Answer Key)
@@ -299,35 +305,37 @@ For judges only. Keep this part separate from the student copies.
 | 65 | Something that had to be repeated | REPEAT | Waiting for a reply |
 | 66 | A change of direction | DIRECTION | Every word is account. Every letter of that's account of what the customer di... |
 | 68 | A mistake that was found and corrected | CORRECTION | (log correction) |
+| 69 | Something that had to be repeated | REPEAT | Ray overloaded: too much to read before his next message, every turn |
+| 70 | A change of direction | DIRECTION | taking care of the user is the reality of what you're supposed to be doing ..... |
 
 ### Totals
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 17 | 25.0% |
-| Broken: a bug in the code, then fixed | 3 | 4.4% |
-| Blocked: a missing permission | 1 | 1.5% |
-| Could not: the thing does not exist where searched | 1 | 1.5% |
-| Delayed: an outside tool or service problem | 1 | 1.5% |
+| Worked as directed (not a finding) | 17 | 24.3% |
+| Broken: a bug in the code, then fixed | 3 | 4.3% |
+| Blocked: a missing permission | 1 | 1.4% |
+| Could not: the thing does not exist where searched | 1 | 1.4% |
+| Delayed: an outside tool or service problem | 1 | 1.4% |
 | Blocked by the automatic safety check | 2 | 2.9% |
-| Declined by Claude, with a stated reason | 1 | 1.5% |
-| Declined because it would mean stating something unknown as fact | 3 | 4.4% |
-| Waiting on Ray's decision | 3 | 4.4% |
-| Unclear wording, and how it was read | 5 | 7.4% |
-| An interpretation Claude chose | 9 | 13.2% |
-| A disagreement between Ray and Claude | 4 | 5.9% |
-| A change of direction | 6 | 8.8% |
-| A mistake that was found and corrected | 4 | 5.9% |
-| Something that had to be repeated | 8 | 11.8% |
-| **All exhibits** | **68** | **100%** |
+| Declined by Claude, with a stated reason | 1 | 1.4% |
+| Declined because it would mean stating something unknown as fact | 3 | 4.3% |
+| Waiting on Ray's decision | 3 | 4.3% |
+| Unclear wording, and how it was read | 5 | 7.1% |
+| An interpretation Claude chose | 9 | 12.9% |
+| A disagreement between Ray and Claude | 4 | 5.7% |
+| A change of direction | 7 | 10.0% |
+| A mistake that was found and corrected | 4 | 5.7% |
+| Something that had to be repeated | 9 | 12.9% |
+| **All exhibits** | **70** | **100%** |
 
 ### Repeats, by who caused them
 
 | Caused by | Times repeated | Share |
 |---|---|---|
-| Claude | 46 | 66.7% |
-| Company or system | 14 | 20.3% |
-| Ray | 9 | 13.0% |
-| **All repeats** | **69** | **100%** |
+| Claude | 77 | 77.0% |
+| Company or system | 14 | 14.0% |
+| Ray | 9 | 9.0% |
+| **All repeats** | **100** | **100%** |
 
-Findings for students: 51. Worked as directed: 17. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 53. Worked as directed: 17. No exhibit records a legal order or outside party stopping the work.

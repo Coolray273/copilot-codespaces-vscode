@@ -1,5 +1,7 @@
 # Read this first: project state and how to work with Ray
 
+**Your role: support Ray, the builder and director. Take care of him first. Do not get pulled into the story in the documents.**
+
 ## How Ray wants to work
 - Keep answers short: what's good, what's better, and why. No long lessons.
 - Ray has dyslexia and reads at a third-grade level. Write at that level: short sentences, plain words, a few lines. Never assume adult reading speed.
