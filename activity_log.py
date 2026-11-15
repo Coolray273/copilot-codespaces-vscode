@@ -6,6 +6,7 @@ Changing or deleting any past entry breaks the chain, and `verify` shows exactly
 Run:
   python3 activity_log.py add "what was asked" OUTCOME CAUSE "what happened" [minutes] [doc ...]
   python3 activity_log.py note KIND "Ray's exact words" "how it was read / what each side said"
+  python3 activity_log.py repeat CAUSED_BY COUNT "what repeated" "why"   (CAUSED_BY: ray | system | claude)
   python3 activity_log.py report      totals by outcome and cause, plus document word counts
   python3 activity_log.py verify      check that no entry has been changed or removed
 
@@ -33,6 +34,7 @@ LOG = "activity_log.jsonl"
 OUTCOMES = {"done", "delayed", "blocked"}
 CAUSES = {"none", "broken", "access", "safety-rule", "waiting-on-ray", "outside"}
 KINDS = {"unclear", "interpretation", "debate", "direction-change"}
+REPEAT_BY = {"ray", "system", "claude"}
 GENESIS = "0" * 64
 
 
@@ -65,6 +67,13 @@ def note(kind, wording, detail, at=None):
     if kind not in KINDS:
         sys.exit(f"KIND must be one of {sorted(KINDS)}")
     append({"kind": kind, "at": at, "wording": wording, "detail": detail})
+
+
+def repeat(by, count, what, detail, at=None):
+    if by not in REPEAT_BY:
+        sys.exit(f"CAUSED_BY must be one of {sorted(REPEAT_BY)}")
+    append({"kind": "repeat", "at": at, "caused_by": by, "count": int(count),
+            "wording": what, "detail": detail})
 
 
 def append(fields):
@@ -134,6 +143,8 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if a[:1] == ["add"] and len(a) >= 5:
         add(a[1], a[2], a[3], a[4], a[5] if len(a) > 5 else None, a[6:])
+    elif a[:1] == ["repeat"] and len(a) == 5:
+        repeat(a[1], a[2], a[3], a[4])
     elif a[:1] == ["note"] and len(a) == 4:
         note(a[1], a[2], a[3])
     elif a == ["report"]:

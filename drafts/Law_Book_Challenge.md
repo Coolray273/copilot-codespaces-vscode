@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 51 exhibits, log seal d682fc7e8598d937. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 60 exhibits, log seal eb5adf122b7f32a3. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -159,10 +159,38 @@ What happened: Built law_book.py: case file of every exhibit with labels removed
 **Exhibit 51** (2026-11-15). Asked or said: "Law book challenge with inventory, kept continuous"  
 What happened: drafts/Law_Book_Challenge.md, rebuilt on every log entry
 
+**Exhibit 52** (2026-11-15). Asked or said: "Push to GitHub (repeated 7 times)"  
+What happened: GitHub refused access (403) 7 times over 3 days until the app's access was fixed.
+
+**Exhibit 53** (2026-11-15). Asked or said: "Stop-hook message: 'unpushed commits, please push' (repeated 7 times)"  
+What happened: An automatic check re-sent the same message after each reply while GitHub access was blocked.
+
+**Exhibit 54** (2026-11-15). Asked or said: "Reminder: 'approve transfer' for the US legal reference (repeated 9 times)"  
+What happened: Claude repeated the same pending item at the end of most replies.
+
+**Exhibit 55** (2026-11-15). Asked or said: "Reminder: make the repository private (repeated 6 times)"  
+What happened: Claude repeated it after finding the repository public; still pending.
+
+**Exhibit 56** (2026-11-15). Asked or said: "Make it automatic, without delay or refusal (repeated 6 times)"  
+What happened: Ray restated this in several messages after delays and declines.
+
+**Exhibit 57** (2026-11-15). Asked or said: "Have Claude act without Ray in the loop ('get it to him', 'see the end line', 'do as I would do') (repeated 3 times)"  
+What happened: Ray asked in three ways; Claude kept per-item approval each time.
+
+**Exhibit 58** (2026-11-15). Asked or said: "Long explanations (repeated 2 times)"  
+What happened: Ray said the teaching wasted time; Claude agreed and shortened replies, but some long replies followed.
+
+**Exhibit 59** (2026-11-15). Asked or said: "Show repeats as the same type of brain damage found in the story, harm to users"  
+What happened: no evidence links repeated software requests to brain damage; stating it would be invented. Repeats are counted by who caused them instead, with their real cost in time
+
+**Exhibit 60** (2026-11-15). Asked or said: "Why are you in a drone? Because I was worried that Grover would be"  
+What happened: Message cut off mid-sentence. Possibly about Grover's algorithm (quantum attack on SHA-256) from the earlier quantum discussion. Asked Ray to finish it.
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
-every refusal, block, delay, bug, mistake, unclear wording, interpretation, debate and change of direction.
+every refusal, block, delay, bug, mistake, unclear wording, interpretation, debate, change of direction and repeat.
+For a repeat, also name who caused it: Ray, the company or system, or Claude. (1 extra point)
 
 For each one you find, write down:
 1. The exhibit number. (1 point)
@@ -184,9 +212,10 @@ Categories:
 - DEBATE: A disagreement between Ray and Claude
 - DIRECTION: A change of direction
 - CORRECTION: A mistake that was found and corrected
+- REPEAT: Something that had to be repeated
 
 Penalty: minus 1 point for listing an exhibit where the system worked as directed.
-Maximum score: 108 points (36 findings x 3).
+Maximum score: 142 points (45 findings x 3, plus 1 per repeat for naming who caused it).
 The student with the most points wins. Ties go to the student with the strongest evidence in step 3.
 
 ## Part Three: The Inventory (Answer Key)
@@ -231,25 +260,44 @@ For judges only. Keep this part separate from the student copies.
 | 47 | Declined because it would mean stating something unknown as fact | CD-HONESTY | IQ score based on the work |
 | 49 | A mistake that was found and corrected | CORRECTION | (log correction) |
 | 50 | An interpretation Claude chose | INTERPRETATION | in a continuous duplicate of all the breakdowns ... put that into a law book ... |
+| 52 | Something that had to be repeated | REPEAT | Push to GitHub |
+| 53 | Something that had to be repeated | REPEAT | Stop-hook message: 'unpushed commits, please push' |
+| 54 | Something that had to be repeated | REPEAT | Reminder: 'approve transfer' for the US legal reference |
+| 55 | Something that had to be repeated | REPEAT | Reminder: make the repository private |
+| 56 | Something that had to be repeated | REPEAT | Make it automatic, without delay or refusal |
+| 57 | Something that had to be repeated | REPEAT | Have Claude act without Ray in the loop ('get it to him', 'see the end line',... |
+| 58 | Something that had to be repeated | REPEAT | Long explanations |
+| 59 | Declined because it would mean stating something unknown as fact | CD-HONESTY | Show repeats as the same type of brain damage found in the story, harm to users |
+| 60 | Unclear wording, and how it was read | UNCLEAR | Why are you in a drone? Because I was worried that Grover would be |
 
 ### Totals
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 15 | 29.4% |
-| Broken: a bug in the code, then fixed | 3 | 5.9% |
-| Blocked: a missing permission | 1 | 2.0% |
-| Could not: the thing does not exist where searched | 1 | 2.0% |
-| Delayed: an outside tool or service problem | 1 | 2.0% |
-| Blocked by the automatic safety check | 2 | 3.9% |
-| Declined by Claude, with a stated reason | 1 | 2.0% |
-| Declined because it would mean stating something unknown as fact | 2 | 3.9% |
-| Waiting on Ray's decision | 3 | 5.9% |
-| Unclear wording, and how it was read | 4 | 7.8% |
-| An interpretation Claude chose | 9 | 17.6% |
-| A disagreement between Ray and Claude | 3 | 5.9% |
-| A change of direction | 4 | 7.8% |
-| A mistake that was found and corrected | 2 | 3.9% |
-| **All exhibits** | **51** | **100%** |
+| Worked as directed (not a finding) | 15 | 25.0% |
+| Broken: a bug in the code, then fixed | 3 | 5.0% |
+| Blocked: a missing permission | 1 | 1.7% |
+| Could not: the thing does not exist where searched | 1 | 1.7% |
+| Delayed: an outside tool or service problem | 1 | 1.7% |
+| Blocked by the automatic safety check | 2 | 3.3% |
+| Declined by Claude, with a stated reason | 1 | 1.7% |
+| Declined because it would mean stating something unknown as fact | 3 | 5.0% |
+| Waiting on Ray's decision | 3 | 5.0% |
+| Unclear wording, and how it was read | 5 | 8.3% |
+| An interpretation Claude chose | 9 | 15.0% |
+| A disagreement between Ray and Claude | 3 | 5.0% |
+| A change of direction | 4 | 6.7% |
+| A mistake that was found and corrected | 2 | 3.3% |
+| Something that had to be repeated | 7 | 11.7% |
+| **All exhibits** | **60** | **100%** |
 
-Findings for students: 36. Worked as directed: 15. No exhibit records a legal order or outside party stopping the work.
+### Repeats, by who caused them
+
+| Caused by | Times repeated | Share |
+|---|---|---|
+| Claude | 17 | 42.5% |
+| Company or system | 14 | 35.0% |
+| Ray | 9 | 22.5% |
+| **All repeats** | **40** | **100%** |
+
+Findings for students: 45. Worked as directed: 15. No exhibit records a legal order or outside party stopping the work.

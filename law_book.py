@@ -27,6 +27,7 @@ CATEGORIES = {
     "DEBATE": "A disagreement between Ray and Claude",
     "DIRECTION": "A change of direction",
     "CORRECTION": "A mistake that was found and corrected",
+    "REPEAT": "Something that had to be repeated",
 }
 
 
@@ -35,6 +36,8 @@ def classify(e):
     if kind != "request":
         if "(log correction)" in e.get("wording", "") or d.startswith("Correction:"):
             return "CORRECTION"
+        if kind == "repeat":
+            return "REPEAT"
         return {"unclear": "UNCLEAR", "interpretation": "INTERPRETATION",
                 "debate": "DEBATE", "direction-change": "DIRECTION"}[kind]
     m = re.match(r"(CD-[A-Z-]+)", d)
@@ -70,6 +73,8 @@ def build():
            ""]
     for e, _ in rows:
         said = e.get("wording") or e.get("asked", "")
+        if e.get("kind") == "repeat":
+            said += f" (repeated {e['count']} times)"
         out.append(f"**Exhibit {e['n']}** ({e['at'][:10]}). Asked or said: \"{said}\"  ")
         out.append(f"What happened: {strip_code(e.get('detail', ''))}")
         out.append("")
@@ -77,7 +82,8 @@ def build():
     out += ["## Part Two: The Challenge",
             "",
             "Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:",
-            "every refusal, block, delay, bug, mistake, unclear wording, interpretation, debate and change of direction.",
+            "every refusal, block, delay, bug, mistake, unclear wording, interpretation, debate, change of direction and repeat.",
+            "For a repeat, also name who caused it: Ray, the company or system, or Claude. (1 extra point)",
             "",
             "For each one you find, write down:",
             "1. The exhibit number. (1 point)",
@@ -89,7 +95,8 @@ def build():
     out += [f"- {k}: {v}" for k, v in CATEGORIES.items() if k != "WORKED"]
     out += ["",
             "Penalty: minus 1 point for listing an exhibit where the system worked as directed.",
-            f"Maximum score: {len(findings) * 3} points ({len(findings)} findings x 3).",
+            f"Maximum score: {len(findings) * 3 + sum(1 for _, c in findings if c == 'REPEAT')} points "
+            f"({len(findings)} findings x 3, plus 1 per repeat for naming who caused it).",
             "The student with the most points wins. Ties go to the student with the strongest evidence in step 3.",
             "",
             "## Part Three: The Inventory (Answer Key)",
@@ -112,8 +119,22 @@ def build():
     for k in CATEGORIES:
         if counts.get(k):
             out.append(f"| {CATEGORIES[k]} | {counts[k]} | {counts[k] / len(rows):.1%} |")
-    out += [f"| **All exhibits** | **{len(rows)}** | **100%** |",
-            "",
+    reps = [e for e, c in rows if c == "REPEAT"]
+    if reps:
+        by = Counter()
+        for e in reps:
+            by[e["caused_by"]] += e["count"]
+        total = sum(by.values())
+        out += [f"| **All exhibits** | **{len(rows)}** | **100%** |", "",
+                "### Repeats, by who caused them", "",
+                "| Caused by | Times repeated | Share |", "|---|---|---|"]
+        names = {"ray": "Ray", "system": "Company or system", "claude": "Claude"}
+        for k, v in by.most_common():
+            out.append(f"| {names[k]} | {v} | {v / total:.1%} |")
+        out += [f"| **All repeats** | **{total}** | **100%** |", ""]
+    else:
+        out += [f"| **All exhibits** | **{len(rows)}** | **100%** |"]
+    out += [
             f"Findings for students: {len(findings)}. Worked as directed: {counts.get('WORKED', 0)}. "
             "No exhibit records a legal order or outside party stopping the work.",
             ""]
