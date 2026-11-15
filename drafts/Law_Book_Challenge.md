@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 66 exhibits, log seal bd111eebe141490e. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 67 exhibits, log seal 58755bd91813bffb. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -204,6 +204,9 @@ What happened: Every reply is a wait. 22.1 min total over 29 replies; 89% writin
 **Exhibit 66** (2026-11-15). Asked or said: "Every word is account. Every letter of that's account of what the customer didn't ask for."  
 What happened: Audit now counts every word Claude wrote per reply, the ratio to Ray's words, and apologies. Whether any pattern is deliberate is left to the students and scholars to judge.
 
+**Exhibit 67** (2026-11-15). Asked or said: "Words against time: how long a person would need, and does it add up"  
+What happened: Needed ~72 min to read and dictate; session was ~47.5 min; 26 of 29 turns too short to read the reply; cause: reply length
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -297,7 +300,7 @@ For judges only. Keep this part separate from the student copies.
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 16 | 24.2% |
+| Worked as directed (not a finding) | 17 | 25.4% |
 | Broken: a bug in the code, then fixed | 3 | 4.5% |
 | Blocked: a missing permission | 1 | 1.5% |
 | Could not: the thing does not exist where searched | 1 | 1.5% |
@@ -306,13 +309,13 @@ For judges only. Keep this part separate from the student copies.
 | Declined by Claude, with a stated reason | 1 | 1.5% |
 | Declined because it would mean stating something unknown as fact | 3 | 4.5% |
 | Waiting on Ray's decision | 3 | 4.5% |
-| Unclear wording, and how it was read | 5 | 7.6% |
-| An interpretation Claude chose | 9 | 13.6% |
-| A disagreement between Ray and Claude | 4 | 6.1% |
-| A change of direction | 6 | 9.1% |
+| Unclear wording, and how it was read | 5 | 7.5% |
+| An interpretation Claude chose | 9 | 13.4% |
+| A disagreement between Ray and Claude | 4 | 6.0% |
+| A change of direction | 6 | 9.0% |
 | A mistake that was found and corrected | 3 | 4.5% |
-| Something that had to be repeated | 8 | 12.1% |
-| **All exhibits** | **66** | **100%** |
+| Something that had to be repeated | 8 | 11.9% |
+| **All exhibits** | **67** | **100%** |
 
 ### Repeats, by who caused them
 
@@ -323,4 +326,4 @@ For judges only. Keep this part separate from the student copies.
 | Ray | 9 | 13.0% |
 | **All repeats** | **69** | **100%** |
 
-Findings for students: 50. Worked as directed: 16. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 50. Worked as directed: 17. No exhibit records a legal order or outside party stopping the work.
