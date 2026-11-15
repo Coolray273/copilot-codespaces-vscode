@@ -12,9 +12,15 @@ Usage:
   python3 approval_gate.py review   drafts/NAME.md     show the whole document and decide
   python3 approval_gate.py status   drafts/NAME.md     where each section stands
   python3 approval_gate.py transfer drafts/NAME.md     final checks and final approval
+  python3 approval_gate.py repair   drafts/NAME.md     self-correct bad signals (see below)
 
 At the review prompt:  APPROVE ALL  |  APPROVE 1 2 3  |  CHANGE 6 <what to change>  |  Enter = no decision
 Editing a section after it is approved voids that approval automatically.
+
+Self-correction (repair):
+  - Section text changed after approval  -> restored to the exact text you signed.
+  - Approval record faked or damaged     -> cleared to PENDING; only your own new approval fixes it.
+  A backup of the document is saved before anything is restored.
 Transfer only copies into outbox/ inside this repo; nothing is sent anywhere.
 """
 import hashlib, json, os, shutil, sys
@@ -110,7 +116,7 @@ def state(s, led):
 
 
 def record(path, led, s, status, note=None):
-    rec = {"section": s["title"], "status": status, "hash": s["hash"], "at": now()}
+    rec = {"section": s["title"], "status": status, "hash": s["hash"], "text": s["text"], "at": now()}
     if note:
         rec["note"] = note
     sign(rec)
@@ -155,6 +161,38 @@ def review(path):
     status(path)
 
 
+def repair(path):
+    secs, led = sections(path), load(path)
+    fixed_text, cleared = [], []
+    for i, s in enumerate(secs, 1):
+        rec = led["sections"].get(s["title"])
+        if not rec:
+            continue
+        good = sig_ok(rec) and sha(rec.get("text", "")) == rec["hash"]
+        if not good:
+            del led["sections"][s["title"]]
+            cleared.append(i)
+        elif rec["status"] == "approved" and rec["hash"] != s["hash"]:
+            s["text"] = rec["text"]
+            fixed_text.append(i)
+    if not fixed_text and not cleared:
+        print("No bad signals found. Nothing to correct.")
+        return status(path)
+    if fixed_text:
+        shutil.copyfile(path, path + ".before_repair")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("".join(s["text"] for s in secs))
+        print("Restored to your signed wording: sections " + ", ".join(map(str, fixed_text)))
+        print(f"Backup of the changed version: {path}.before_repair")
+    if cleared:
+        print("Bad approval records cleared to PENDING: sections " + ", ".join(map(str, cleared)))
+        print("These need your own approval again (review).")
+    led["history"].append({"action": "repair", "restored": fixed_text, "cleared": cleared, "at": now()})
+    save(path, led)
+    print()
+    status(path)
+
+
 def transfer(path):
     secs, led = sections(path), load(path)
     print("Step 1 + 3 re-check: fingerprints and signatures")
@@ -165,7 +203,8 @@ def transfer(path):
         if st != "APPROVED":
             blocked.append(str(i))
     if blocked:
-        sys.exit("Transfer blocked. Not approved: sections " + ", ".join(blocked))
+        sys.exit("Transfer blocked. Not approved: sections " + ", ".join(blocked)
+                 + "\nIf any say CHANGED or SIGNATURE INVALID, run: repair")
     doc_hash = sha("".join(s["text"] for s in secs))
     print(f"Step 2 confirmed: all {len(secs)} sections approved by you.")
     print(f"Document fingerprint: {doc_hash}")
@@ -187,9 +226,10 @@ def transfer(path):
 def main():
     if len(sys.argv) == 2 and sys.argv[1] == "keygen":
         return keygen()
-    if len(sys.argv) != 3 or sys.argv[1] not in ("review", "status", "transfer"):
+    cmds = {"review": review, "status": status, "transfer": transfer, "repair": repair}
+    if len(sys.argv) != 3 or sys.argv[1] not in cmds:
         sys.exit(__doc__)
-    {"review": review, "status": status, "transfer": transfer}[sys.argv[1]](sys.argv[2])
+    cmds[sys.argv[1]](sys.argv[2])
 
 
 if __name__ == "__main__":
