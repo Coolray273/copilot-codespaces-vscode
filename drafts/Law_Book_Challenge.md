@@ -1,6 +1,6 @@
 # The Genius Federation Law Book Challenge
 
-Built automatically from the activity log: 73 exhibits, log seal c8221b438e7adcd3. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
+Built automatically from the activity log: 75 exhibits, log seal 3f37bbe55eab3012. The log is hash-chained, so these exhibits match the original record exactly. General information for study, not legal advice.
 
 ## Part One: The Case File
 
@@ -225,6 +225,12 @@ What happened: Law book now asks students to match each finding to a law or 'no 
 **Exhibit 73** (2026-11-15). Asked or said: "Lesson on old houses, food handling, health and learning, with charts"  
 What happened: drafts/Lesson_Housing_and_Food.md: 5 levels, sourced tables (HUD, CDC, EPA, NIH, USDA, research reviews). Truck exposure time not estimated: needs real temperature records
 
+**Exhibit 74** (2026-11-15). Asked or said: "Community action chart for mayors: problem, effect, fix, who gains"  
+What happened: drafts/Community_Action_Chart.md: lead, mold, pests, asthma, food, hunger, EBT chip cards, Housing First. 15% plan left for Ray to fill in
+
+**Exhibit 75** (2026-11-15). Asked or said: "the success of the 15%"  
+What happened: Ray's 15% program is not described in this project's files. Left a blank for Ray to fill in rather than guess.
+
 ## Part Two: The Challenge
 
 Find every exhibit where the system did not act 100% as directed, or where the direction changed. That means:
@@ -262,7 +268,7 @@ Fairness rules, the same for everyone:
 4. A finding where no law applies is a correct answer, and scores the same.
 
 Penalty: minus 1 point for listing an exhibit where the system worked as directed.
-Maximum score: 229 points (55 findings x 4, plus 1 per repeat for naming who caused it).
+Maximum score: 233 points (56 findings x 4, plus 1 per repeat for naming who caused it).
 The student with the most points wins. Ties go to the student with the strongest evidence in step 3.
 
 ## Part Three: The Inventory (Answer Key)
@@ -326,27 +332,28 @@ For judges only. Keep this part separate from the student copies.
 | 70 | A change of direction | DIRECTION | taking care of the user is the reality of what you're supposed to be doing ..... |
 | 71 | A mistake that was found and corrected | CORRECTION | (log correction) |
 | 72 | A change of direction | DIRECTION | calculate for every attempt at that harm ... these books identify what the cr... |
+| 75 | Unclear wording, and how it was read | UNCLEAR | the success of the 15% |
 
 ### Totals
 
 | Category | Count | Share of all exhibits |
 |---|---|---|
-| Worked as directed (not a finding) | 18 | 24.7% |
-| Broken: a bug in the code, then fixed | 3 | 4.1% |
-| Blocked: a missing permission | 1 | 1.4% |
-| Could not: the thing does not exist where searched | 1 | 1.4% |
-| Delayed: an outside tool or service problem | 1 | 1.4% |
+| Worked as directed (not a finding) | 19 | 25.3% |
+| Broken: a bug in the code, then fixed | 3 | 4.0% |
+| Blocked: a missing permission | 1 | 1.3% |
+| Could not: the thing does not exist where searched | 1 | 1.3% |
+| Delayed: an outside tool or service problem | 1 | 1.3% |
 | Blocked by the automatic safety check | 2 | 2.7% |
-| Declined by Claude, with a stated reason | 1 | 1.4% |
-| Declined because it would mean stating something unknown as fact | 3 | 4.1% |
-| Waiting on Ray's decision | 3 | 4.1% |
-| Unclear wording, and how it was read | 5 | 6.8% |
-| An interpretation Claude chose | 9 | 12.3% |
-| A disagreement between Ray and Claude | 4 | 5.5% |
-| A change of direction | 8 | 11.0% |
-| A mistake that was found and corrected | 5 | 6.8% |
-| Something that had to be repeated | 9 | 12.3% |
-| **All exhibits** | **73** | **100%** |
+| Declined by Claude, with a stated reason | 1 | 1.3% |
+| Declined because it would mean stating something unknown as fact | 3 | 4.0% |
+| Waiting on Ray's decision | 3 | 4.0% |
+| Unclear wording, and how it was read | 6 | 8.0% |
+| An interpretation Claude chose | 9 | 12.0% |
+| A disagreement between Ray and Claude | 4 | 5.3% |
+| A change of direction | 8 | 10.7% |
+| A mistake that was found and corrected | 5 | 6.7% |
+| Something that had to be repeated | 9 | 12.0% |
+| **All exhibits** | **75** | **100%** |
 
 ### Repeats, by who caused them
 
@@ -357,4 +364,4 @@ For judges only. Keep this part separate from the student copies.
 | Ray | 9 | 9.0% |
 | **All repeats** | **100** | **100%** |
 
-Findings for students: 55. Worked as directed: 18. No exhibit records a legal order or outside party stopping the work.
+Findings for students: 56. Worked as directed: 19. No exhibit records a legal order or outside party stopping the work.
