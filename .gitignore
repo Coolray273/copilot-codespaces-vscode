@@ -37,3 +37,4 @@ ehthumbs.db
 Thumbs.db
 *.before_repair
 health_log.json
+__pycache__/
