@@ -12,7 +12,7 @@ Then it computes the system fingerprint: one SHA-256 over every tracked file.
 If any file changes, the fingerprint changes. Each run is logged in health_log.json,
 so you can see when the system last checked out clean and whether anything changed since.
 """
-import glob, hashlib, json, os, py_compile, subprocess
+import glob, hashlib, json, os, subprocess
 from datetime import datetime, timezone
 
 CORE = ["generate_exports.py", "storage_guard.py", "family_tree.py", "approval_gate.py",
@@ -42,9 +42,9 @@ def check_code():
     bad = []
     for p in glob.glob("*.py"):
         try:
-            py_compile.compile(p, doraise=True, cfile=os.devnull)
-        except py_compile.PyCompileError as e:
-            bad.append(f"{p} ({e.msg.strip().splitlines()[-1]})")
+            compile(open(p, encoding="utf-8").read(), p, "exec")
+        except SyntaxError as e:
+            bad.append(f"{p} line {e.lineno}: {e.msg}")
     return not bad, "all scripts compile" if not bad else "errors: " + "; ".join(bad)
 
 
